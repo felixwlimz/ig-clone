@@ -14,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { SignUpValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserAccount } from "@/lib/appwrite/api";
 import { useToast } from "@/hooks/use-toast";
 import {
   useCreateUserAccount,
@@ -148,7 +147,7 @@ const SignUpForm = () => {
           />
 
           <Button type="submit" className="shad-button_primary">
-            {isCreatingUser ? (
+            {isCreatingUser || isSigningIn || isUserLoading  ? (
               <div className="flex-center gap-2">
                 <Loader /> Loading...
               </div>
